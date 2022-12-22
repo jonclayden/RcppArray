@@ -1,0 +1,14 @@
+Package: Rcpp.asArray
+Version: 0.1
+Date: 2022-12-22
+Title: Dummy package
+Author: Jon Clayden
+Maintainer: Jon Clayden <code@clayden.org>
+Imports: Rcpp
+LinkingTo: Rcpp
+Description: A simple example of a problem with 'as()' applied to C++11 arrays.
+Encoding: UTF-8
+License: GPL-2
+URL: https://github.com/jonclayden/Rcpp.asArray
+BugReports: https://github.com/jonclayden/Rcpp.asArray/issues
+RoxygenNote: 7.2.1
