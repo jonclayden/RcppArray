@@ -12,19 +12,22 @@ template <typename ElementType, int Dimensionality>
 class Exporter<std::array<ElementType,Dimensionality>>
 {
 private:
-    std::array<ElementType,Dimensionality> value;
+    SEXP value;
 
 public:
-    Exporter (SEXP x)
+    Exporter (SEXP x) : value(x) {}
+    
+    std::array<ElementType,Dimensionality> get ()
     {
-        std::vector<ElementType> vec = as<std::vector<ElementType>>(x);
+        std::vector<ElementType> vec = as<std::vector<ElementType>>(value);
         if (vec.size() != Dimensionality)
             throw Rcpp::exception("Array does not have the expected number of elements");
+        
+        std::array<ElementType,Dimensionality> result;
         for (int i=0; i<Dimensionality; i++)
-            value[i] = vec[i];
+            result[i] = vec[i];
+        return result;
     }
-    
-    std::array<ElementType,Dimensionality> get () { return value; }
 };
 
 } // traits namespace
