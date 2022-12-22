@@ -8,26 +8,23 @@ namespace Rcpp {
 namespace traits {
 
 // Partial specialisation to allow as<array<T,D>>(...)
-template <typename ElementType, int Dimensionality>
-class Exporter<std::array<ElementType,Dimensionality>>
+template <typename ElementType>
+class Exporter<std::array<ElementType,3>>
 {
 private:
-    SEXP value;
+    std::array<ElementType,3> value;
 
 public:
-    Exporter (SEXP x) : value(x) {}
-    
-    std::array<ElementType,Dimensionality> get ()
+    Exporter (SEXP x)
     {
-        std::vector<ElementType> vec = as<std::vector<ElementType>>(value);
-        if (vec.size() != Dimensionality)
+        std::vector<ElementType> vec = as<std::vector<ElementType>>(x);
+        if (vec.size() != 3)
             throw Rcpp::exception("Array does not have the expected number of elements");
-        
-        std::array<ElementType,Dimensionality> result;
-        for (int i=0; i<Dimensionality; i++)
-            result[i] = vec[i];
-        return result;
+        for (int i=0; i<3; i++)
+            value[i] = vec[i];
     }
+    
+    std::array<ElementType,3> get () { return value; }
 };
 
 } // traits namespace
