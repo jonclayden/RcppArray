@@ -11,6 +11,6 @@ test(vec)
 }
 \description{
 This function just calls into C++ to convert its argument to a std::array,
-and then prints its elements. An error will be produced if \c vec doesn't
-have three elements or can't be converted to double.
+and then prints its elements. An error will be produced if vec doesn't have
+three elements or can't be converted to double.
 }
