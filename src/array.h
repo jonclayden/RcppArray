@@ -7,29 +7,41 @@
 namespace Rcpp {
 namespace traits {
 
+// Forward declaration before including Rcpp.h
+template <typename ElementType, int Dimensionality>
+class Exporter<std::array<ElementType,Dimensionality>>;
+
+} }
+
+// Needed for Rcpp::Vector
+#include <Rcpp.h>
+
+namespace Rcpp {
+namespace traits {
+
 // Partial specialisation to allow as<array<T,D>>(...)
-template <typename ElementType>
-class Exporter<std::array<ElementType,3>>
+template <typename ElementType, int Dimensionality>
+class Exporter<std::array<ElementType,Dimensionality>>
 {
 private:
-    std::array<ElementType,3> value;
-
-public:
-    Exporter (SEXP x)
-    {
-        std::vector<ElementType> vec = as<std::vector<ElementType>>(x);
-        if (vec.size() != 3)
-            throw Rcpp::exception("Array does not have the expected number of elements");
-        for (int i=0; i<3; i++)
-            value[i] = vec[i];
-    }
+    const static int RTYPE = r_sexptype_traits<ElementType>::rtype;
+    Rcpp::Vector<RTYPE> vec;
     
-    std::array<ElementType,3> get () { return value; }
+public:
+    Exporter (SEXP x) : vec(x) {}
+    
+    std::array<ElementType,Dimensionality> get ()
+    {
+        if (vec.size() != Dimensionality)
+            throw Rcpp::exception("Array does not have the expected number of elements");
+        std::array<ElementType,Dimensionality> result;
+        for (int i=0; i<Dimensionality; i++)
+            result[i] = vec[i];
+        return result;
+    }
 };
 
 } // traits namespace
 } // Rcpp namespace
-
-#include <Rcpp.h>
 
 #endif
