@@ -32,7 +32,7 @@ namespace Rcpp {
       ATD get() {
         ATD x;                  // resize step neeed? or implicit because of D?
         if (vec.size() != D) Rcpp::stop("Array does not have the expected number of elements");
-        for (size_t i=0; i<D; i++) x[i] = vec[i];
+        std::memcpy(x.begin(), vec.begin(), D*sizeof(T));
         return x;
       }
     };
