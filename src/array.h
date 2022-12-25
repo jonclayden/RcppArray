@@ -8,7 +8,7 @@ namespace Rcpp {
 namespace traits {
 
 // Partial specialisation to allow as<array<T,D>>(...)
-template <typename ElementType, int Dimensionality>
+template <typename ElementType, size_t Dimensionality>
 class Exporter<std::array<ElementType,Dimensionality>>
 {
 private:
