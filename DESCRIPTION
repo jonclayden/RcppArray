@@ -6,6 +6,7 @@ Author: Jon Clayden
 Maintainer: Jon Clayden <code@clayden.org>
 Imports: Rcpp
 LinkingTo: Rcpp
+Suggests: tinytest
 Description: A simple example of a problem with 'as()' applied to C++11 arrays.
 Encoding: UTF-8
 License: GPL-2
