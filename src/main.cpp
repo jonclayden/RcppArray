@@ -32,6 +32,12 @@ void doubleArray(RObject x) {
 }
 
 // [[Rcpp::export]]
+void stringArray(RObject x) {
+  std::array<std::string,3> a = Rcpp::as<std::array<std::string,3>>(x);
+  printArray(a);
+}
+
+// [[Rcpp::export]]
 void int64Array(RObject x) {
   std::array<int64_t,3> a = Rcpp::as<std::array<int64_t,3>>(x);
   printArray(a);

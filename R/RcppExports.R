@@ -13,6 +13,10 @@ doubleArray <- function(x) {
     invisible(.Call('_Rcpp_asArray_doubleArray', PACKAGE = 'Rcpp.asArray', x))
 }
 
+stringArray <- function(x) {
+    invisible(.Call('_Rcpp_asArray_stringArray', PACKAGE = 'Rcpp.asArray', x))
+}
+
 int64Array <- function(x) {
     invisible(.Call('_Rcpp_asArray_int64Array', PACKAGE = 'Rcpp.asArray', x))
 }
