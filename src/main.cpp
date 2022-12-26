@@ -26,6 +26,12 @@ void intArray(RObject x) {
 }
 
 // [[Rcpp::export]]
+void unsignedArray(RObject x) {
+  std::array<unsigned int,3> a = Rcpp::as<std::array<unsigned int,3>>(x);
+  printArray(a);
+}
+
+// [[Rcpp::export]]
 void doubleArray(RObject x) {
   std::array<double,3> a = Rcpp::as<std::array<double,3>>(x);
   printArray(a);

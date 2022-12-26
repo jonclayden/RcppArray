@@ -9,6 +9,10 @@ intArray <- function(x) {
     invisible(.Call('_Rcpp_asArray_intArray', PACKAGE = 'Rcpp.asArray', x))
 }
 
+unsignedArray <- function(x) {
+    invisible(.Call('_Rcpp_asArray_unsignedArray', PACKAGE = 'Rcpp.asArray', x))
+}
+
 doubleArray <- function(x) {
     invisible(.Call('_Rcpp_asArray_doubleArray', PACKAGE = 'Rcpp.asArray', x))
 }
