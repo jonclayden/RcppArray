@@ -30,7 +30,7 @@ namespace Rcpp {
         if (TYPEOF(x) != RTYPE) Rcpp::stop("Wrong R type for array");
       }
       ATD get() {
-        ATD x;                  // resize step neeed? or implicit because of D?
+        ATD x;
         if (vec.size() != D) Rcpp::stop("Array does not have the expected number of elements");
         std::memcpy(x.begin(), vec.begin(), D*sizeof(T));
         return x;
