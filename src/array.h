@@ -26,13 +26,11 @@ namespace Rcpp {
       Rcpp::Vector<RTYPE> vec;
 
     public:
-      Exporter(SEXP x): vec(x) {
-        if (TYPEOF(x) != RTYPE) Rcpp::stop("Wrong R type for array");
-      }
+      Exporter(SEXP x): vec(x) { }
       ATD get() {
         ATD x;
         if (vec.size() != D) Rcpp::stop("Array does not have the expected number of elements");
-        std::memcpy(x.begin(), vec.begin(), D*sizeof(T));
+        std::copy(vec.begin(), vec.end(), x.begin());
         return x;
       }
     };
