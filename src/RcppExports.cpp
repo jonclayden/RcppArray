@@ -19,9 +19,42 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// intArray
+void intArray(RObject x);
+RcppExport SEXP _Rcpp_asArray_intArray(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
+    intArray(x);
+    return R_NilValue;
+END_RCPP
+}
+// doubleArray
+void doubleArray(RObject x);
+RcppExport SEXP _Rcpp_asArray_doubleArray(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
+    doubleArray(x);
+    return R_NilValue;
+END_RCPP
+}
+// int64Array
+void int64Array(RObject x);
+RcppExport SEXP _Rcpp_asArray_int64Array(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
+    int64Array(x);
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_Rcpp_asArray_foo", (DL_FUNC) &_Rcpp_asArray_foo, 0},
+    {"_Rcpp_asArray_intArray", (DL_FUNC) &_Rcpp_asArray_intArray, 1},
+    {"_Rcpp_asArray_doubleArray", (DL_FUNC) &_Rcpp_asArray_doubleArray, 1},
+    {"_Rcpp_asArray_int64Array", (DL_FUNC) &_Rcpp_asArray_int64Array, 1},
     {NULL, NULL, 0}
 };
 
