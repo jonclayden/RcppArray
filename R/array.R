@@ -1,3 +1,3 @@
 #' @importFrom Rcpp evalCpp
-#' @useDynLib Rcpp.asArray
+#' @useDynLib RcppArray
 NULL

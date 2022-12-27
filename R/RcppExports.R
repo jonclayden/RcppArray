@@ -2,34 +2,34 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 foo <- function() {
-    invisible(.Call('_Rcpp_asArray_foo', PACKAGE = 'Rcpp.asArray'))
+    invisible(.Call('_RcppArray_foo', PACKAGE = 'RcppArray'))
 }
 
 bar <- function() {
-    .Call('_Rcpp_asArray_bar', PACKAGE = 'Rcpp.asArray')
+    .Call('_RcppArray_bar', PACKAGE = 'RcppArray')
 }
 
 baz <- function() {
-    .Call('_Rcpp_asArray_baz', PACKAGE = 'Rcpp.asArray')
+    .Call('_RcppArray_baz', PACKAGE = 'RcppArray')
 }
 
 intArray <- function(x) {
-    invisible(.Call('_Rcpp_asArray_intArray', PACKAGE = 'Rcpp.asArray', x))
+    invisible(.Call('_RcppArray_intArray', PACKAGE = 'RcppArray', x))
 }
 
 unsignedArray <- function(x) {
-    invisible(.Call('_Rcpp_asArray_unsignedArray', PACKAGE = 'Rcpp.asArray', x))
+    invisible(.Call('_RcppArray_unsignedArray', PACKAGE = 'RcppArray', x))
 }
 
 doubleArray <- function(x) {
-    invisible(.Call('_Rcpp_asArray_doubleArray', PACKAGE = 'Rcpp.asArray', x))
+    invisible(.Call('_RcppArray_doubleArray', PACKAGE = 'RcppArray', x))
 }
 
 stringArray <- function(x) {
-    invisible(.Call('_Rcpp_asArray_stringArray', PACKAGE = 'Rcpp.asArray', x))
+    invisible(.Call('_RcppArray_stringArray', PACKAGE = 'RcppArray', x))
 }
 
 int64Array <- function(x) {
-    invisible(.Call('_Rcpp_asArray_int64Array', PACKAGE = 'Rcpp.asArray', x))
+    invisible(.Call('_RcppArray_int64Array', PACKAGE = 'RcppArray', x))
 }
 

@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // foo
 void foo();
-RcppExport SEXP _Rcpp_asArray_foo() {
+RcppExport SEXP _RcppArray_foo() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     foo();
@@ -21,7 +21,7 @@ END_RCPP
 }
 // bar
 RObject bar();
-RcppExport SEXP _Rcpp_asArray_bar() {
+RcppExport SEXP _RcppArray_bar() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -31,7 +31,7 @@ END_RCPP
 }
 // baz
 RObject baz();
-RcppExport SEXP _Rcpp_asArray_baz() {
+RcppExport SEXP _RcppArray_baz() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -41,7 +41,7 @@ END_RCPP
 }
 // intArray
 void intArray(RObject x);
-RcppExport SEXP _Rcpp_asArray_intArray(SEXP xSEXP) {
+RcppExport SEXP _RcppArray_intArray(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
@@ -51,7 +51,7 @@ END_RCPP
 }
 // unsignedArray
 void unsignedArray(RObject x);
-RcppExport SEXP _Rcpp_asArray_unsignedArray(SEXP xSEXP) {
+RcppExport SEXP _RcppArray_unsignedArray(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
@@ -61,7 +61,7 @@ END_RCPP
 }
 // doubleArray
 void doubleArray(RObject x);
-RcppExport SEXP _Rcpp_asArray_doubleArray(SEXP xSEXP) {
+RcppExport SEXP _RcppArray_doubleArray(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
@@ -71,7 +71,7 @@ END_RCPP
 }
 // stringArray
 void stringArray(RObject x);
-RcppExport SEXP _Rcpp_asArray_stringArray(SEXP xSEXP) {
+RcppExport SEXP _RcppArray_stringArray(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
@@ -81,7 +81,7 @@ END_RCPP
 }
 // int64Array
 void int64Array(RObject x);
-RcppExport SEXP _Rcpp_asArray_int64Array(SEXP xSEXP) {
+RcppExport SEXP _RcppArray_int64Array(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< RObject >::type x(xSEXP);
@@ -91,18 +91,18 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_Rcpp_asArray_foo", (DL_FUNC) &_Rcpp_asArray_foo, 0},
-    {"_Rcpp_asArray_bar", (DL_FUNC) &_Rcpp_asArray_bar, 0},
-    {"_Rcpp_asArray_baz", (DL_FUNC) &_Rcpp_asArray_baz, 0},
-    {"_Rcpp_asArray_intArray", (DL_FUNC) &_Rcpp_asArray_intArray, 1},
-    {"_Rcpp_asArray_unsignedArray", (DL_FUNC) &_Rcpp_asArray_unsignedArray, 1},
-    {"_Rcpp_asArray_doubleArray", (DL_FUNC) &_Rcpp_asArray_doubleArray, 1},
-    {"_Rcpp_asArray_stringArray", (DL_FUNC) &_Rcpp_asArray_stringArray, 1},
-    {"_Rcpp_asArray_int64Array", (DL_FUNC) &_Rcpp_asArray_int64Array, 1},
+    {"_RcppArray_foo", (DL_FUNC) &_RcppArray_foo, 0},
+    {"_RcppArray_bar", (DL_FUNC) &_RcppArray_bar, 0},
+    {"_RcppArray_baz", (DL_FUNC) &_RcppArray_baz, 0},
+    {"_RcppArray_intArray", (DL_FUNC) &_RcppArray_intArray, 1},
+    {"_RcppArray_unsignedArray", (DL_FUNC) &_RcppArray_unsignedArray, 1},
+    {"_RcppArray_doubleArray", (DL_FUNC) &_RcppArray_doubleArray, 1},
+    {"_RcppArray_stringArray", (DL_FUNC) &_RcppArray_stringArray, 1},
+    {"_RcppArray_int64Array", (DL_FUNC) &_RcppArray_int64Array, 1},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_Rcpp_asArray(DllInfo *dll) {
+RcppExport void R_init_RcppArray(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

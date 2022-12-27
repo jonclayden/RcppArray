@@ -1,13 +1,13 @@
-Package: Rcpp.asArray
-Version: 0.1
-Date: 2022-12-22
-Title: Dummy package
-Author: Jon Clayden
+Package: RcppArray
+Version: 0.2
+Date: 2022-12-27
+Title: Rcpp meets std::array
+Author: Jon Clayden, Dirk Eddelbuettel
 Maintainer: Jon Clayden <code@clayden.org>
 Imports: Rcpp
 LinkingTo: Rcpp
 Suggests: tinytest
-Description: A simple example of a problem with 'as()' applied to C++11 arrays.
+Description: Interoperability between 'Rcpp' and C++11 arrays.
 Encoding: UTF-8
 License: GPL-2
 URL: https://github.com/jonclayden/Rcpp.asArray
