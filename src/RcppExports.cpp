@@ -19,6 +19,26 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// bar
+RObject bar();
+RcppExport SEXP _Rcpp_asArray_bar() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(bar());
+    return rcpp_result_gen;
+END_RCPP
+}
+// baz
+RObject baz();
+RcppExport SEXP _Rcpp_asArray_baz() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(baz());
+    return rcpp_result_gen;
+END_RCPP
+}
 // intArray
 void intArray(RObject x);
 RcppExport SEXP _Rcpp_asArray_intArray(SEXP xSEXP) {
@@ -72,6 +92,8 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_Rcpp_asArray_foo", (DL_FUNC) &_Rcpp_asArray_foo, 0},
+    {"_Rcpp_asArray_bar", (DL_FUNC) &_Rcpp_asArray_bar, 0},
+    {"_Rcpp_asArray_baz", (DL_FUNC) &_Rcpp_asArray_baz, 0},
     {"_Rcpp_asArray_intArray", (DL_FUNC) &_Rcpp_asArray_intArray, 1},
     {"_Rcpp_asArray_unsignedArray", (DL_FUNC) &_Rcpp_asArray_unsignedArray, 1},
     {"_Rcpp_asArray_doubleArray", (DL_FUNC) &_Rcpp_asArray_doubleArray, 1},

@@ -1,4 +1,7 @@
 expect_stdout(Rcpp.asArray:::foo(), "1 2 3")
+expect_identical(Rcpp.asArray:::bar(), 1:3)
+expect_equal(Rcpp.asArray:::baz(), 1:3)
+expect_inherits(Rcpp.asArray:::baz(), "numeric")
 
 expect_stdout(Rcpp.asArray:::intArray(1:3), "1 2 3")
 expect_error(Rcpp.asArray:::intArray(1:4), "expected number of elements")

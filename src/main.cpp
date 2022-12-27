@@ -20,6 +20,16 @@ void foo() {
 }
 
 // [[Rcpp::export]]
+RObject bar() {
+  return wrap(std::array<int,3>({ 1, 2, 3}));
+}
+
+// [[Rcpp::export]]
+RObject baz() {
+  return wrap(std::array<unsigned int,3>({ 1, 2, 3}));
+}
+
+// [[Rcpp::export]]
 void intArray(RObject x) {
   std::array<int,3> a = Rcpp::as<std::array<int,3>>(x);
   printArray(a);

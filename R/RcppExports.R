@@ -5,6 +5,14 @@ foo <- function() {
     invisible(.Call('_Rcpp_asArray_foo', PACKAGE = 'Rcpp.asArray'))
 }
 
+bar <- function() {
+    .Call('_Rcpp_asArray_bar', PACKAGE = 'Rcpp.asArray')
+}
+
+baz <- function() {
+    .Call('_Rcpp_asArray_baz', PACKAGE = 'Rcpp.asArray')
+}
+
 intArray <- function(x) {
     invisible(.Call('_Rcpp_asArray_intArray', PACKAGE = 'Rcpp.asArray', x))
 }

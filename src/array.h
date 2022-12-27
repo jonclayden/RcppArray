@@ -7,8 +7,10 @@
 namespace Rcpp {
   namespace traits {
 
-    // Partial specialisation to allow as<array<T,D>>(...)
+    // Partial specialisations to allow as<array<T,D>>(...) and the reverse
     template <typename T, std::size_t D> class Exporter<std::array<T,D>>;
+
+    template <typename T, std::size_t D> SEXP wrap(const std::array<T,D>&);
 
   }
 }
@@ -34,6 +36,11 @@ namespace Rcpp {
         return x;
       }
     };
+
+    template <typename T, std::size_t D> SEXP wrap(const std::array<T,D>& object) {
+      const int RTYPE = Rcpp::traits::r_sexptype_traits<T>::rtype;
+      return Vector<RTYPE>(object.begin(), object.end());
+    }
   }
 }
 
