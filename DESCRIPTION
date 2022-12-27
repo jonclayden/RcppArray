@@ -10,6 +10,6 @@ Suggests: tinytest
 Description: Interoperability between 'Rcpp' and C++11 arrays.
 Encoding: UTF-8
 License: GPL-2
-URL: https://github.com/jonclayden/Rcpp.asArray
-BugReports: https://github.com/jonclayden/Rcpp.asArray/issues
+URL: https://github.com/jonclayden/RcppArray
+BugReports: https://github.com/jonclayden/RcppArray/issues
 RoxygenNote: 7.2.3
