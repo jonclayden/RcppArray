@@ -1,4 +1,4 @@
-#include "array.h"
+#include "RcppArray.h"
 
 #include <Rcpp/Lightest>
 
