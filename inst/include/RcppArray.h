@@ -28,10 +28,11 @@ namespace Rcpp {
       Rcpp::Vector<RTYPE> vec;
 
     public:
-      Exporter(SEXP x): vec(x) { }
+      Exporter(SEXP x): vec(x) {
+        if (vec.size() != D) Rcpp::stop("Array does not have the expected number of elements");
+      }
       ATD get() {
         ATD x;
-        if (vec.size() != D) Rcpp::stop("Array does not have the expected number of elements");
         std::copy(vec.begin(), vec.end(), x.begin());
         return x;
       }
