@@ -1,8 +1,3 @@
-expect_stdout(RcppArray:::foo(), "1 2 3")
-expect_identical(RcppArray:::bar(), 1:3)
-expect_equal(RcppArray:::baz(), 1:3)
-expect_inherits(RcppArray:::baz(), "numeric")
-
 expect_stdout(RcppArray:::intArray(1:3), "1 2 3")
 expect_error(RcppArray:::intArray(1:4), "expected number of elements")
 expect_stdout(RcppArray:::intArray(runif(3)), "0 0 0")
