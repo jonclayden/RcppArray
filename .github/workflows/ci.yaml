@@ -43,8 +43,8 @@ jobs:
     - name: Check client package
       run: |
         R CMD INSTALL *tar.gz
-        R CMD build clients/array.test && R CMD check --no-manual array.test*tar.gz || { mv *.Rcheck Rcheck; false; }
-        R CMD build clients/span.test && R CMD check --no-manual span.test*tar.gz || { mv *.Rcheck Rcheck; false; }
+        R CMD build clients/array.test && R CMD check --no-manual array.test*tar.gz || { mv array.test*.Rcheck Rcheck; false; }
+        R CMD build clients/span.test && R CMD check --no-manual span.test*tar.gz || { mv span.test*.Rcheck Rcheck; false; }
     
     # Upload the check directory as an artefact on failure
     - name: Upload check results
