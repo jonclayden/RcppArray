@@ -2,10 +2,14 @@
 
 using namespace Rcpp;
 
+#ifndef HAVE_SPAN
+#error Span support isn't available
+#endif
+
 template <typename T, size_t D> void printSpan (const std::span<T,D> &sp) {
   Rcout << "Span: ";
-  for (size_t i=0; i<sp.size(); i++)
-    Rcout << sp[i] << " ";
+  for (const T &el : sp)
+    Rcout << el << " ";
   Rcout << std::endl;
 }
 
@@ -21,3 +25,12 @@ RObject bar() {
   std::span s(v.begin(), v.end());
   return wrap(s);
 }
+
+// This will not compile because the converted vector's underlying type
+// (double) doesn't match the span's specialised type
+/* RObject baz(RObject x) {
+  std::span<unsigned int,3> s = Rcpp::as<std::span<unsigned int,3>>(x);
+  printSpan(s);
+  std::vector<unsigned int> v = { 1, 2, 3 };
+  return wrap(std::span(v).first(2));
+} */
