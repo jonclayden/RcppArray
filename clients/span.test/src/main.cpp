@@ -1,9 +1,10 @@
+#include "config.h"
 #include "RcppArray.h"
 
 using namespace Rcpp;
 
 #ifndef HAVE_SPAN
-#error Span support isn't available
+#error Span support is not available
 #endif
 
 template <typename T, size_t D> void printSpan (const std::span<T,D> &sp) {

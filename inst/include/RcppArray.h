@@ -4,8 +4,11 @@
 #include <RcppCommon.h>
 #include <array>
 
-#if __cplusplus >= 202002L && defined(__cpp_lib_span)
+#if !defined(HAVE_SPAN) && __cplusplus >= 202002L && defined(__cpp_lib_span)
 #define HAVE_SPAN
+#endif
+
+#ifdef HAVE_SPAN
 #include <span>
 #endif
 
