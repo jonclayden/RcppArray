@@ -4,8 +4,8 @@ using namespace Rcpp;
 
 template <typename T, size_t D> void printArray (const std::array<T,D> &arr) {
   Rcout << "Array: ";
-  for (size_t i=0; i<D; i++)
-    Rcout << arr[i] << " ";
+  for (const T& el : arr)
+    Rcout << el << " ";
   Rcout << std::endl;
 }
 
