@@ -1,5 +1,5 @@
 
 if ( requireNamespace("tinytest", quietly=TRUE) ){
-  tinytest::test_package("array.test")
+  tinytest::test_package("span.test")
 }
 
