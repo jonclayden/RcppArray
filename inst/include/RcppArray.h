@@ -68,13 +68,14 @@ namespace Rcpp {
       Rcpp::Vector<RTYPE> vec;
     
     public:
-      // std::span is a view, so does type conversion make sense semantically?
-      // Does as<span<T>>(...) even make sense?
       Exporter(SEXP x): vec(x) {
         if (D != std::dynamic_extent && vec.size() != D) Rcpp::stop("Span does not have the expected number of elements");
       }
       STD get() {
-        // Initialisation of a sized span (D neither 0 nor dynamic) isn't allowed without argument
+        // NB: Will not compile if T does not match the underlying type of vec,
+        // i.e., where T is not a type that R uses directly (int, double, ...).
+        // This is also a view into an object owned by the Exporter, which may
+        // be invalidated, so use with care
         return STD(vec.begin(), vec.end());
       }
     };
