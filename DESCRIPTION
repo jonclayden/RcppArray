@@ -2,8 +2,9 @@ Package: RcppArray
 Version: 0.2.0
 Date: 2023-01-29
 Title: Rcpp Meets C++ Arrays
-Author: Jon Clayden, Dirk Eddelbuettel
-Maintainer: Jon Clayden <code@clayden.org>
+Authors@R: c(person("Jon", "Clayden", role=c("cre","aut"),
+    email="code@clayden.org", comment=c(ORCID="0000-0002-6608-0619")),
+    person("Dirk", "Eddelbuettel", role="aut"))
 Imports: Rcpp
 LinkingTo: Rcpp
 Suggests: tinytest
