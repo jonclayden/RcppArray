@@ -2,7 +2,7 @@
 
 [`Rcpp`](https://www.rcpp.org) is a mature and very widely used package providing seamless interoperability between C++ and [the R language](https://www.r-project.org), which has a native C API. This package facilitates conversion between R data structures and the templated [`std::array` class](https://en.cppreference.com/w/cpp/container/array) introduced in C++11, by using the interface provided in `Rcpp`. It originated with [this Stack Overflow question](https://stackoverflow.com/questions/74887786/specialising-rcppas-for-stdarray).
 
-`std::array` is a templated container type with a fixed number of elements, an object-orientated analogue of a C-style array type like `int[3]`. Client packages can interface this type with R if they add `RcppArray` to `LinkingTo` and include the header. (A simple [example package](https://github.com/jonclayden/RcppArray/tree/main/clients/array.test) is provided as an example.)
+`std::array` is a templated container type with a fixed number of elements, an object-orientated analogue of a C-style array type like `int[3]`. Client packages can interface this type with R if they add `RcppArray` to `LinkingTo` and include the header. (A simple [example package](https://github.com/jonclayden/RcppArray/tree/main/clients/array.test) is provided.)
 
 ```c++
 // No need to include "Rcpp.h" as well

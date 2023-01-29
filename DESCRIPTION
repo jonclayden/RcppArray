@@ -1,6 +1,6 @@
 Package: RcppArray
 Version: 0.2.0
-Date: 2023-01-27
+Date: 2023-01-29
 Title: Rcpp Meets C++ Arrays
 Author: Jon Clayden, Dirk Eddelbuettel
 Maintainer: Jon Clayden <code@clayden.org>
