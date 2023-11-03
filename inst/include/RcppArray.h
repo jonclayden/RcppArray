@@ -42,7 +42,7 @@ namespace Rcpp {
 namespace RcppArray {
   namespace internal {
     // Helper class to copy between a std::tuple and an R list. Each element
-    // has its own specialisation, which contains a child element that handles
+    // has its own specialisation, which contains a child object that handles
     // the previous element, down to element zero which terminates the chain
     template <std::size_t N, typename... T> struct Copier {
       typedef typename std::tuple<T...> TT;
