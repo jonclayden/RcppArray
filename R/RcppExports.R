@@ -21,3 +21,7 @@ int64Array <- function(x) {
     invisible(.Call('_RcppArray_int64Array', PACKAGE = 'RcppArray', x))
 }
 
+intDoubleString <- function(x) {
+    invisible(.Call('_RcppArray_intDoubleString', PACKAGE = 'RcppArray', x))
+}
+
