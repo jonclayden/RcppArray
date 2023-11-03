@@ -1,0 +1,15 @@
+Package: tuple.test
+Version: 0.1
+Date: 2023-11-03
+Title: Test client package for RcppArray
+Author: Jon Clayden
+Maintainer: Jon Clayden <code@clayden.org>
+Imports: Rcpp
+LinkingTo: Rcpp, RcppArray
+Suggests: tinytest
+Description: Test package stub using std::tuple with Rcpp.
+Encoding: UTF-8
+License: GPL-2
+URL: https://github.com/jonclayden/RcppArray
+BugReports: https://github.com/jonclayden/RcppArray/issues
+RoxygenNote: 7.2.3

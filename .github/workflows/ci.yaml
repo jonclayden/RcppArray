@@ -45,6 +45,9 @@ jobs:
         R CMD INSTALL *tar.gz
         R CMD build clients/array.test && R CMD check --no-manual array.test*tar.gz || { mv array.test*.Rcheck Rcheck; false; }
     
+    - name: Check tuple client
+      run: R CMD build clients/tuple.test && R CMD check --no-manual tuple.test*tar.gz || { mv tuple.test*.Rcheck Rcheck; false; }
+    
     - name: Check span client
       if: matrix.os == 'ubuntu-latest'
       run: R CMD build clients/span.test && R CMD check --no-manual span.test*tar.gz || { mv span.test*.Rcheck Rcheck; false; }
