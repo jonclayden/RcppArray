@@ -71,6 +71,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// wrapTuple
+SEXP wrapTuple();
+RcppExport SEXP _RcppArray_wrapTuple() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(wrapTuple());
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppArray_intArray", (DL_FUNC) &_RcppArray_intArray, 1},
@@ -79,6 +89,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RcppArray_stringArray", (DL_FUNC) &_RcppArray_stringArray, 1},
     {"_RcppArray_int64Array", (DL_FUNC) &_RcppArray_int64Array, 1},
     {"_RcppArray_intDoubleString", (DL_FUNC) &_RcppArray_intDoubleString, 1},
+    {"_RcppArray_wrapTuple", (DL_FUNC) &_RcppArray_wrapTuple, 0},
     {NULL, NULL, 0}
 };
 

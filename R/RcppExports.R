@@ -25,3 +25,7 @@ intDoubleString <- function(x) {
     invisible(.Call('_RcppArray_intDoubleString', PACKAGE = 'RcppArray', x))
 }
 
+wrapTuple <- function() {
+    .Call('_RcppArray_wrapTuple', PACKAGE = 'RcppArray')
+}
+
