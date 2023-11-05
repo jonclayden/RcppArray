@@ -16,25 +16,26 @@
 namespace Rcpp {
   namespace traits {
 
-    // Partial specialisations to allow as<array<T,D>>(...) and the reverse
+    // Partial specialisation to allow as<array<T,D>>(...)
     template <typename T, std::size_t D> class Exporter<std::array<T,D>>;
-
-    template <typename T, std::size_t D> SEXP wrap(const std::array<T,D>&);
-
+    
     // Ditto for std::tuple
     template <typename... T> class Exporter<std::tuple<T...>>;
-    
-    template <typename... T> SEXP wrap(const std::tuple<T...>&);
+  }
+  
+  // Partial specialisations for wrap()
+  template <typename T, std::size_t D> SEXP wrap(const std::array<T,D>&);
+  template <typename... T> SEXP wrap(const std::tuple<T...>&);
 
 #ifdef HAVE_SPAN
-    
-    // Ditto for std::span, which is from C++20
+  // Version for std::span, which is from C++20
+  namespace traits {
     template <typename T, std::size_t D> class Exporter<std::span<T,D>>;
-    
-    template <typename T, std::size_t D> SEXP wrap(const std::span<T,D>&);
-    
-#endif
   }
+  
+  template <typename T, std::size_t D> SEXP wrap(const std::span<T,D>&);
+#endif
+
 }
 
 #include <Rcpp.h>
@@ -98,18 +99,13 @@ namespace Rcpp {
         return x;
       }
     };
-
-    template <typename T, std::size_t D> SEXP wrap(const std::array<T,D>& object) {
-      const int RTYPE = Rcpp::traits::r_sexptype_traits<T>::rtype;
-      return Vector<RTYPE>(object.begin(), object.end());
-    }
     
     template <typename... T> class Exporter<std::tuple<T...>> {
       typedef typename std::tuple<T...> TT;
-    
+      
       // Tuples are (in general) a mixed type, analogous to an R list
       Rcpp::List list;
-    
+      
     public:
       Exporter(SEXP x): list(x) {
         if (list.size() != sizeof...(T)) Rcpp::stop("Tuple does not have the expected number of elements");
@@ -122,15 +118,7 @@ namespace Rcpp {
       }
     };
     
-    template <typename... T> SEXP wrap(const std::tuple<T...>& object) {
-      Rcpp::List list(sizeof...(T));
-      RcppArray::internal::Copier<sizeof...(T), T...> copier(object, list);
-      copier.tuple2list();
-      return list;
-    }
-    
 #ifdef HAVE_SPAN
-    
     template <typename T, std::size_t D> class Exporter<std::span<T,D>> {
       typedef typename std::span<T,D> STD;
     
@@ -149,14 +137,28 @@ namespace Rcpp {
         return STD(vec.begin(), vec.end());
       }
     };
-    
-    template <typename T, std::size_t D> SEXP wrap(const std::span<T,D>& object) {
-      const int RTYPE = Rcpp::traits::r_sexptype_traits<T>::rtype;
-      return Vector<RTYPE>(object.begin(), object.end());
-    }
-    
 #endif
+  }   // traits namespace
+  
+  template <typename T, std::size_t D> SEXP wrap(const std::array<T,D>& object) {
+    const int RTYPE = Rcpp::traits::r_sexptype_traits<T>::rtype;
+    return Vector<RTYPE>(object.begin(), object.end());
   }
+  
+  template <typename... T> SEXP wrap(const std::tuple<T...>& object) {
+    Rcpp::List list(sizeof...(T));
+    const RcppArray::internal::Copier<sizeof...(T), T...> copier(const_cast<std::tuple<T...>&>(object), list);
+    copier.tuple2list();
+    return list;
+  }
+
+#ifdef HAVE_SPAN
+  template <typename T, std::size_t D> SEXP wrap(const std::span<T,D>& object) {
+    const int RTYPE = Rcpp::traits::r_sexptype_traits<T>::rtype;
+    return Vector<RTYPE>(object.begin(), object.end());
+  }
+#endif
+  
 }
 
 #endif
