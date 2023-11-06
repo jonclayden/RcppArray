@@ -1,4 +1,7 @@
-# Interoperability between `Rcpp` and `std::array` (et al.)
+[![CRAN version](http://www.r-pkg.org/badges/version/RcppArray)](https://cran.r-project.org/package=RcppArray) [![CI](https://github.com/jonclayden/RcppArray/actions/workflows/ci.yaml/badge.svg)](https://github.com/jonclayden/RcppArray/actions/workflows/ci.yaml) [![Dependencies](https://tinyverse.netlify.com/badge/RcppArray)](https://tinyverse.netlify.app)
+
+
+# `Rcpp` interoperability with `std::array` (et al.)
 
 [`Rcpp`](https://www.rcpp.org) is a mature and very widely used package providing seamless interoperability between C++ and [the R language](https://www.r-project.org), which has a native C API. This package facilitates conversion between R data structures and the templated [`std::array` class](https://en.cppreference.com/w/cpp/container/array) introduced in C++11, by using the interface provided in `Rcpp`. It originated with [this Stack Overflow question](https://stackoverflow.com/questions/74887786/specialising-rcppas-for-stdarray).
 
