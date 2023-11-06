@@ -8,9 +8,9 @@
 \description{
 This package presents no user-facing R code, but instead provides linked
 packages containing C++ code with the ability to convert easily between R
-vector types and the \code{std::array} and \code{std::span} classes. See
-the package README and/or included header \code{RcppArray.h} for further
-details.
+vector types and the \code{std::array}, \code{std::tuple} and
+\code{std::span} classes. See the package README and/or included header
+\code{RcppArray.h} for further details.
 }
 \seealso{
 Useful links:
@@ -26,6 +26,11 @@ Useful links:
 Authors:
 \itemize{
   \item Dirk Eddelbuettel
+}
+
+Other contributors:
+\itemize{
+  \item Andrew Johnson (\href{https://orcid.org/0000-0001-7000-8065}{ORCID}) [contributor]
 }
 
 }
