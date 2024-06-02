@@ -1,4 +1,4 @@
-[![CRAN version](http://www.r-pkg.org/badges/version/RcppArray)](https://cran.r-project.org/package=RcppArray) [![CI](https://github.com/jonclayden/RcppArray/actions/workflows/ci.yaml/badge.svg)](https://github.com/jonclayden/RcppArray/actions/workflows/ci.yaml) [![Dependencies](https://tinyverse.netlify.com/badge/RcppArray)](https://tinyverse.netlify.app)
+[![CRAN version](http://www.r-pkg.org/badges/version/RcppArray)](https://cran.r-project.org/package=RcppArray) [![CI](https://github.com/jonclayden/RcppArray/actions/workflows/ci.yaml/badge.svg)](https://github.com/jonclayden/RcppArray/actions/workflows/ci.yaml) [![Dependencies](https://tinyverse.netlify.app/badge/RcppArray)](https://tinyverse.netlify.app)
 
 
 # `Rcpp` interoperability with `std::array` (et al.)
