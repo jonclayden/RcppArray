@@ -151,6 +151,11 @@ namespace Rcpp {
   
   template <typename... T> SEXP wrap(const std::tuple<T...>& object) {
     Rcpp::List list(sizeof...(T));
+    // Copier's "tuple" member is a non-const reference because it is shared
+    // with list2tuple(), which does write through it; tuple2list(), used
+    // here, only ever reads from it, so this const_cast is safe. But it
+    // relies on that division of labour continuing to hold, so take care if
+    // Copier's responsibilities change
     const RcppArray::internal::Copier<sizeof...(T), T...> copier(const_cast<std::tuple<T...>&>(object), list);
     copier.tuple2list();
     return list;
