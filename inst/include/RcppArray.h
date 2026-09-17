@@ -107,7 +107,11 @@ namespace Rcpp {
       Rcpp::List list;
       
     public:
-      Exporter(SEXP x): list(x) {
+      Exporter(SEXP x) {
+        // Rcpp::List's SEXP constructor will silently coerce a non-list
+        // vector into a list of scalars, so check the type explicitly
+        if (!Rf_isNewList(x)) Rcpp::stop("Tuple requires a list (%s provided)", Rf_type2char(TYPEOF(x)));
+        list = Rcpp::List(x);
         if (list.size() != sizeof...(T)) Rcpp::stop("Tuple does not have the expected number of elements");
       }
       TT get() {
