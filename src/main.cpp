@@ -1,7 +1,5 @@
 #include "RcppArray.h"
 
-#include <Rcpp/Lightest>
-
 using namespace Rcpp;
 
 template <typename T, size_t D> void printArray (const std::array<T,D> &arr) {
