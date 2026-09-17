@@ -71,7 +71,7 @@ namespace RcppArray {
     template <typename... T> struct Copier<0, T...> {
       typedef typename std::tuple<T...> TT;
       
-      Copier(TT& t, Rcpp::List& l) {}
+      Copier(TT&, Rcpp::List&) {}
       
       void list2tuple() const {}
       void tuple2list() const {}
